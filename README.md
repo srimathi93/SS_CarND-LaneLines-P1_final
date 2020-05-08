@@ -16,7 +16,7 @@ The goals / steps of this project are the following:
 
 The goal of this project is to create a pipeline for detecting for detecting lane lines. It involes analyzing the lane lines firstly in an image, developing a pipeline as described later below and extending the same pipeline to a video file. The original image referenceon which the pipeline was developed is shown below:
 
-[test_images/image.jpg]
+![](test_images/solidWhiteCurve.jpg)
 
 ---
 
@@ -28,14 +28,14 @@ My pipeline consisted of 5 steps.
 
 1. GrayScale Conversion: I converted the images to grayscale, which helped me analyze the image better in terms of only pixel strength.
 
-[test_images_output/gray.jpg]
+![](test_images_output/gray.jpg)
 
 2. Gaussian Blur: Then I applied a Gaussian Blur to reduce the noise in the image and reduce some details that are unnecessary. I used a kernel size of 5.
 3. Canny Edge Detection: Then I passed the image through a canny edge detection to accurately detect the edges in the image. Since lane lines are mostly edges, this helps us narrow down the possible lane location in the image. I chose thefollowing values for my Canny Edge Detection:
 low_threshold = 50
 high_threshold = 120
 
-[test_images_output/edges.jpg]
+![](test_images_output/edges.jpg)
 
 4. Defining Range of Interest using a Polynomial: Now I defined a range of interest by defining a polynomial to cover the location in the image where I expect my lane lines to appear and mask the rest of the image. I chose the following vertices:
 (40,550),(900, 550), (500, 295), (510,295)
@@ -46,11 +46,11 @@ threshold = 120
 min_line_length = 70
 max_line_gap =110
 
-[test_images_output/color_edges.jpg]
+![](test_images_output/color_edges.jpg)
 
 After this I created a weighted image with the lined image on the original image to obtain a reference.
 
-[test_images_output/combo.jpg]
+![](test_images_output/combo.jpg)
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by:
 
@@ -72,7 +72,7 @@ When I executed this function on the video, I got an error because one of the fr
 
 If you'd like to include images to show how the pipeline works, here is how to include an image: 
 
-[test_images_output/combo.jpg]
+![](test_images_output/combo.jpg)
 
 
 ### 2. Identify potential shortcomings with your current pipeline
